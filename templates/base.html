@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='MDB/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='MDB/css/mdb.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='MDB/css/mdb.lite.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='MDB/css/bootstrap.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,700&amp;display=swap">
+    {% block head %} {% endblock %}
+
+    <style>
+         .container{
+             font-family: 'Poppins', sans-serif;
+         }
+    </style>
+</head>
+<body>
+    {% block body %} {% endblock %}
+</body>
+</html>

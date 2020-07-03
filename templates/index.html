@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>Task Master</title>
+    <style>
+        i:hover{
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron container mt-5">
+    <div class="container">
+        <h2>Task Master </h2>
+        <form action="/" method="post" class="mt-5">
+              <input type="text" name="content" placeholder="task..." id="content" class="form-control col-6" required>
+              <button type="submit" class="btn btn-success col-2" value="Add Task">Add</button>
+        </form>
+        {% if tasks|length < 1  %}
+            <hr>
+            <h3>No tasks</h3>
+        {% else %}
+        <table class="table table-striped mt-5">
+             <tr>
+                <th>Task</th>
+                <th>Added</th>
+                <th>Action</th>
+            </tr>
+            {%   for task in tasks %}
+            <tr>
+                <td>{{ task.content }}</td>
+                <td>{{ task.date_created.date() }}</td>
+                <td>
+                    <div class="d-inline-block">
+                        <a href="/update/{{ task.id }}" class="mr-3"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="/delete/{{ task.id }}"><i class="fas fa-trash"></i></a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+
+        </table>
+    </div>
+</div>
+{% endblock %}
